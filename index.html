@@ -1,28 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Website</title>
-    <link href="/styles/main.css" rel="stylesheet" />
-  </head>
-  <body>
-    <header role="banner">
-      <h1>Welcome to my Website!</h1>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>האתר האישי שלי - עמוד ראשי</title>
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>היי,  <br>אני נוי</h1>
     </header>
-    <main>
-      <p>This is a paragraph.</p>
-      <a href="/elements.html">Elements Page</a>
 
-      <div class="counter">
-        <h2>Counter</h2>
-        <button id="increment" class="counter-button">+</button>
-        <button id="decrement" class="counter-button">−</button>
-        <span id="count">0</span>
-      </div>
-    </main>
+    <div class="content-wrapper">
 
-    <script type="module" src="/main.js"></script>
-  </body>
+        <div class="main-profile-card">
+            <h2>About Me</h2>
+            
+            <img src="your-profile-picture.jpg" alt="תמונה אישית שלי" class="profile-img large-img">
+            
+            <p>
+                ברוכיםות הבאיםות לאתר שלי! אני סטודנטית שנה ג' באוניברסיטה העברית המשלבת בין החוג לתקשורת ועיתונאות לבין תכנית מט"ר.
+                <br> לאחר 4 שני בעיר החלטתי לחלוק איתכםן כמה מהמקומות האוהבים עלי בעיר. מוזמניםות להכנס לרשימה או ליצור איתי קשר!
+            </p>
+        </div>
+
+        <section class="action-section">
+            
+            <button id="js-toggle-btn" class="main-button primary-action">פרטים ודרכי התקשרות</button>
+            
+            <a href="jlm_spots_details.html" class="main-button secondary-action">
+                המקומות הכי שווים בירושלים ☕
+            </a>
+
+        </section>
+        
+        <div id="secret-message" class="hidden-content contact-details">
+            <p style="text-align: center;">
+                <strong>מייל:</strong> noy.bitan@mail.huji.ac.il <br>
+
+ <br>
+            </p>
+        </div>
+
+
+    </div> <footer class="main-footer">
+        <p>זכויות יוצרים &copy; 2025 | נבנה על ידי נוי ביתן</p>
+    </footer>
+
+</body>
 </html>

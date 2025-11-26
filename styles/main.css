@@ -1,158 +1,226 @@
-@import url("reset.css");
-/* This is a custom font from google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&display=swap");
+/* =================================================== */
+/* 2. ייבוא פונטים - Alef (פונט נקי וברור) */
+/* =================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap');
 
-/* what is :root? https://developer.mozilla.org/en-US/docs/Web/CSS/:root */
+/* =================================================== */
+/* 1. הגדרת משתני CSS - מראה מינימליסטי מודרני */
+/* =================================================== */
 :root {
-  /* Define design variables */
-  --color-primary: #2b2d42;
-  --color-secondary: #bfc6d2;
-  --color-background: #f5f5f5;
-  --color-accent: #535bf2;
+    --primary-color: #3f51b5; /* כחול רויאל רגוע (דגש) */
+    --secondary-color: #EEEEEE; /* אפור בהיר מאוד (גבולות ורקע עדין) */
+    --text-color: #212121; /* שחור כמעט טהור (טקסט ופוטר) */
+    --bg-color: #FFFFFF; /* רקע לבן טהור */
+    
+    --main-font: 'Alef', sans-serif;
+    --header-font: 'Alef', sans-serif; 
 
-  --border-radius: 0.5rem;
-
-  --font-titles: "Frank Ruhl Libre", serif;
-  --font-body: system-ui, sans-serif; /* system-ui matches the user's system font */
+    --transition-speed: 0.3s; 
 }
+
+/* =================================================== */
+/* 3. סגנונות בסיסיים ופריסה (Flexbox) */
+/* =================================================== */
 
 body {
-  color: var(--color-primary);
-  background-color: var(--color-background);
-  font-family: var(--font-body);
+    direction: rtl; 
+    font-family: var(--main-font); 
+    background-color: var(--secondary-color); 
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    text-align: center; 
 }
 
-/* Layout */
-main {
-  padding: 2rem;
+.content-wrapper {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px;
+    max-width: 900px;
+    margin: 40px auto; 
 }
 
-header {
-  padding: 1rem;
+/* סטייל: כרטיסיית הפרופיל המרכזית */
+.main-profile-card {
+    background-color: var(--bg-color);
+    padding: 50px;
+    width: 100%;
+    max-width: 650px;
+    border-radius: 4px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 30px;
 }
 
-main,
-header,
-nav {
-  max-width: 60rem;
-  margin: 0 auto;
+/* סקשן הפעולות (כפתורים) */
+.action-section {
+    width: 100%;
+    max-width: 650px;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    margin-bottom: 30px;
 }
 
-article,
-nav {
-  padding: 1rem 0;
+/* סגנון כללי לסקשנים - שימש ב-jlm_spots_details.html */
+.interactivity-section {
+    width: 90%;
+    margin: 20px auto 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 4px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    max-width: 800px;
+    text-align: right; /* יישור לימין לתוכן בדפים פנימיים */
+}
+/* שימו לב - המחלקה .about-details-section כרגע לא בשימוש ישיר, 
+   אך ניתן להחזיר אותה אם נרצה לעצב את דף "About Me" אחרת */
+/* .about-details-section { 
+    ... 
+} */
+
+
+h1, h2 {
+    font-family: var(--header-font);
+    color: var(--text-color); 
+    text-align: center;
 }
 
-.rtl {
-  direction: rtl;
+/* Header */
+.main-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Text */
-p {
-  margin: 1rem 0;
+/* תמונת הפרופיל */
+.profile-img.large-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%; 
+    display: block;
+    margin: 15px auto 30px;
+    border: 5px solid var(--primary-color);
 }
 
-ul,
-ol {
-  margin-top: 0.5rem;
+/* כפתור */
+.main-button {
+    flex: 1 1 250px; 
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 4px; 
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none; 
+    max-width: 300px; 
+    display: flex; 
+    justify-content: center;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
-li {
-  margin-top: 0.3rem;
+.main-button:hover {
+    background-color: var(--text-color); 
+    transform: translateY(-2px);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 1rem;
-  font-family: var(--font-titles);
-  font-weight: 500;
-  font-optical-sizing: auto;
+/* Footer */
+.main-footer {
+    background-color: var(--text-color);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
 }
 
-h1 {
-  font-size: 2.5em;
+/* =================================================== */
+/* 4. סגנון לאינטראקטיביות (JavaScript) */
+/* =================================================== */
+
+.hidden-content {
+    text-align: center;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto; 
+    
+    max-height: 0; 
+    overflow: hidden; 
+    opacity: 0;
+    transition: max-height var(--transition-speed) ease-in-out, opacity var(--transition-speed) var(--transition-speed) ease-in-out, padding var(--transition-speed) ease-in-out;
+    padding: 0 15px;
 }
 
-h2 {
-  font-size: 2em;
+.hidden-content.visible {
+    max-height: 200px; 
+    opacity: 1;
+    padding: 15px;
+    border-top: 1px solid var(--secondary-color);
+    margin-top: 20px;
 }
 
-h3 {
-  font-size: 1.5em;
+/* =================================================== */
+/* 5. סגנונות ייחודיים לדף המקומות בירושלים (חדש!) */
+/* =================================================== */
+
+.jlm-spots-wrapper {
+    flex-direction: row; /* מסדר את הכרטיסיות בשורה */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch; /* גורם לכרטיסיות להיות באותו גובה */
+    gap: 25px; /* מרווח בין הכרטיסיות */
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
-h4 {
-  font-size: 1.2em;
+.jlm-spot-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex: 1 1 300px; /* גמישות: יתפוס לפחות 300px, ויתמתח/יתכווץ */
+    max-width: 400px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* דוחף את המפה לתחתית */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
-h5 {
-  font-size: 1em;
+.jlm-spot-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-h6 {
-  font-size: 0.83em;
+.jlm-spot-card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: right; /* יישור הכותרת לימין */
 }
 
-blockquote {
-  padding-left: 1rem;
-  border-left: 2px solid var(--color-secondary);
+.jlm-spot-card p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
-/* Links */
-a {
-  color: var(--color-accent);
-  text-decoration: underline;
-}
-a:hover {
-  text-decoration: none;
-}
-
-/* Tables */
-table {
-  margin-top: 1.5rem;
-  border-spacing: 0px;
-  border-collapse: collapse;
-}
-table td,
-table th {
-  padding: 0.5rem;
-  border: 1px solid var(--color-secondary);
+.map-container {
+    width: 100%;
+    height: 200px; /* גובה קבוע למפה */
+    overflow: hidden; /* לוודא שהמפה לא חורגת */
+    border-radius: 4px;
+    margin-top: 20px;
+    border: 1px solid var(--secondary-color); /* גבול למפה */
 }
 
-/* Forms */
-input,
-button,
-textarea,
-select {
-  padding: 0.2em 0.5em;
-  border: 1px solid var(--color-secondary);
-  border-radius: var(--border-radius);
-}
-
-fieldset {
-  margin-top: 1.5rem;
-  border: 1px solid var(--color-secondary);
-}
-
-.counter-button {
-  background-color: var(--color-accent);
-  width: 2rem;
-  height: 2rem;
-  color: white;
-  border: none;
-  border-radius: 1000px; /* Make the button round */
-  cursor: pointer;
-  font-weight: bold;
-
-  &:hover {
-    filter: brightness(120%);
-  }
-
-  &:active {
-    filter: brightness(80%);
-  }
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block; /* מסיר רווחים מיותרים מתחת לאייפריים */
 }
